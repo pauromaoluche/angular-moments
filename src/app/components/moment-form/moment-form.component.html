@@ -1,0 +1,31 @@
+<h2>Compartilhe seu momento memoravel conosco</h2>
+<form>
+    <div class="row">
+        <div class="col-lg-4">
+            <label for="name" class="form-label">Nome:</label>
+            <input type="text" class="form-control" id="name" placeholder="Seu nome completo" name="name" required>
+        </div>
+        <div class="col-lg-4">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="E-mail" name="email" required>
+        </div>
+        <div class="col-lg-4">
+            <label for="data" class="form-label">Data:</label>
+            <input type="datetime-local" class="form-control" id="data" name="data" required>
+        </div>
+        <div class="col-lg-12">
+            <label for="title" class="form-label">Titulo:</label>
+            <input type="text" class="form-control" id="title" placeholder="Titulo" name="title" required>
+        </div>
+        <div class="col-lg-12">
+            <label for="desc" class="form-label">Descrição:</label>
+            <input type="tex" class="form-control" id="email" placeholder="Enter email" name="email" required>
+        </div>
+        <div class="col-lg-12">
+            <label for="image" class="form-label">Fotos do momento</label>
+            <input type="file" class="form-control" id="image" name="image" required>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="{{ btnText }}" />
+    </div>
+</form>
