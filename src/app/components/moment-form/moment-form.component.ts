@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,  EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Moment } from 'src/app/interfaces/Moments';
 
 @Component({
   selector: 'app-moment-form',
@@ -7,11 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./moment-form.component.scss']
 })
 export class MomentFormComponent implements OnInit {
-@Input() btnText!: string
+  @Output() onSubmit = new EventEmitter<Moment>();
+  @Input() btnText!: string
 
-/* declarei o moment form, que foi passado como grupo la no html */
-/* a ! significa, que os valores ainda vão ser preenchidos */
-momentForm!: FormGroup;
+  /* declarei o moment form, que foi passado como grupo la no html */
+  /* a ! significa, que os valores ainda vão ser preenchidos */
+  momentForm!: FormGroup;
 
   constructor() { }
 
@@ -20,45 +22,53 @@ momentForm!: FormGroup;
     this.momentForm = new FormGroup({
       /* campos do formulario */
       id: new FormControl(''),
-      name: new FormControl('',[Validators.required]),
-      email: new FormControl('',[Validators.required]),
-      data: new FormControl('',[Validators.required]),
-      title: new FormControl('',[Validators.required]),
-      description: new FormControl('',[Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      data: new FormControl('', [Validators.required]),
+      title: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
       image: new FormControl(''),
     })
   }
 
-  get name(){
+  get name() {
+    /* a ! significa, que os valores ainda vão ser preenchidos */
     return this.momentForm.get('name')!;
   }
 
-  get email(){
+  get email() {
     return this.momentForm.get('email')!;
   }
 
-  get data(){
+  get data() {
     return this.momentForm.get('data')!;
   }
 
-  get title(){
-    /* a ! significa, que os valores ainda vão ser preenchidos */
+  get title() {
     return this.momentForm.get('title')!;
   }
 
-  get description(){
+  get description() {
     return this.momentForm.get('description')!;
   }
 
+  onFileSelected(event: any){
 
+    const file: File = event.target.files[0]
 
-  submit(){
-    if(this.momentForm.invalid){
+    this.momentForm.patchValue({image: file})
+
+  }
+
+  submit() {
+    if (this.momentForm.invalid) {
       alert("Erro ao enviar o formulario");
       return;
     }
 
-    alert("Enviado");
+    console.log(this.momentForm.value);
+
+    this.onSubmit.emit(this.momentForm.value);
   }
 
 }
