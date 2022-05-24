@@ -18,3 +18,73 @@ div.wallpaper {
         }
     }
 }
+
+section.about {
+    margin-top: 100px;
+    .left {
+        padding: 0px 30px;
+        .title {
+            text-align: right;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+        .text {
+            display: flex;
+            p {
+                margin-top: 10px;
+                line-height: 30px;
+                text-align: right;
+            }
+        }
+    }
+    .right {
+        padding: 0px 30px;
+        .title {
+            text-align: left;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+        }
+        .text {
+            display: flex;
+            p {
+                margin-top: 10px;
+                line-height: 30px;
+                text-align: left;
+            }
+        }
+    }
+}
+
+section.testimonial {
+    .author {
+        display: flex;
+        justify-content: center;
+        img {
+            border-radius: 50%;
+        }
+    }
+    .text {
+        font-style: italic;
+        font-size: 15px;
+        padding-top: 20px;
+        color: #212529;
+        text-align: center;
+    }
+    .by {
+        font-size: 13px;
+        color: #4c5053;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+    .carousel-indicators {
+        margin: 0;
+        margin-top: 20px;
+        bottom: unset !important;
+        button {
+            background-color: #8b8b8b;
+        }
+        button.active {
+            background-color: #313131;
+        }
+    }
+}
