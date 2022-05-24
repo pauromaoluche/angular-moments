@@ -52,17 +52,18 @@ export class MomentFormComponent implements OnInit {
     return this.momentForm.get('description')!;
   }
 
-  onFileSelected(event: any){
+  fileChangeEvent(event: any){
 
-    const file: File = event.target.files[0]
+    alert("tem imagem");
 
-    this.momentForm.patchValue({image: file})
+    const file: File = event.target.files[0];
+
+    this.momentForm.patchValue({ image: file });
 
   }
 
   submit() {
     if (this.momentForm.invalid) {
-      alert("Erro ao enviar o formulario");
       return;
     }
 
