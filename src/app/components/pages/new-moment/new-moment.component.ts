@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Moment } from 'src/app/interfaces/Moments';
 import { MomentService } from 'src/app/services/moment.service';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-new-moment',
@@ -12,7 +13,8 @@ export class NewMomentComponent implements OnInit {
   btnText = "Salvar Momento";
   constructor(
     private momentService: MomentService,
-    private router: Router
+    private router: Router,
+    private alertService: AlertService
     ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,16 @@ export class NewMomentComponent implements OnInit {
       formData.append('image', moment.image);
     }
 
-    await this.momentService.createMoment(formData).subscribe();
+    await this.momentService.createMoment(formData).subscribe(
+      (data) =>{
+        this.alertService.success('Sucesso', 'Momento cadastrado com sucesso!');
+      },
+      (error) =>{
+        this.alertService.error('Erro', 'Ouve um erro ao cadastrar o momento!');
+      }
+    );
+
+    
 
   }
 }
