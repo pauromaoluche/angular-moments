@@ -16,6 +16,9 @@ export class MomentsComponent implements OnInit {
   moments: Moment[] = [];
   baseApiUrl = environment.baseApiUrl;
 
+  /* mecanismo de busca */
+  searchTerm: string = "";
+
   constructor(public router: Router, private momentService: MomentService) { }
 
   ngOnInit(): void {
@@ -29,6 +32,14 @@ export class MomentsComponent implements OnInit {
       this.allMoments = data;
       this.moments = data;
     });
+  }
+
+  search(e: Event):void{
+    const target = e.target as HTMLInputElement;
+    const value = target.value;
+    this.moments = this.allMoments.filter(moment =>{
+     return moment.title.toLocaleLowerCase().includes(value);
+    })
   }
 
 }

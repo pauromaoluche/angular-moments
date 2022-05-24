@@ -10,6 +10,13 @@
 
     <div *ngIf="moments.length > 0; else noMoments">
         <div class="container content">
+            <div class="search-moments">
+                <h2>Bem vindo aos nossos momentos</h2>
+                <form class="bd-search position-relative">
+                    <input (input)="search($event)" type="search" class="form-control ds-input" id="search-input" placeholder="Busque um momento" autocomplete="off">
+                </form>
+            </div>
+
             <div class="row">
                 <div class="col-lg-4 moments" *ngFor="let moment of moments">
                     <figure class="figure">

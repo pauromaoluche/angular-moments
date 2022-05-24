@@ -21,6 +21,33 @@ div.wallpaper {
 
 .content {
     margin-top: 100px;
+    .search-moments {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        form.bd-search {
+            input {
+                border-radius: 20px;
+                width: 450px;
+                padding: 5px 20px;
+            }
+        }
+        .bd-search::after {
+            position: absolute;
+            top: 0.4rem;
+            right: 0.4rem;
+            display: flex;
+            height: 1.5rem;
+            padding-right: 0.25rem;
+            padding-left: 0.25rem;
+            font-size: .75rem;
+            color: #6c757d;
+            content: "Ctrl + /";
+            border: 1px solid #dee2e6;
+            border-radius: 0.125rem;
+        }
+    }
     .moments {
         padding: 30px;
         img {
