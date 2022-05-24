@@ -2,7 +2,6 @@
 <!-- [formGroup] define o grupo do formulario, apos isso temos que colocar no component.ts -->
 <div class="moment-form">
     <div class="row">
-
         <div class="col-lg-7">
             <h3>Compartilhe seu momento memoravel conosco</h3>
             <form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
@@ -45,7 +44,7 @@
                     </div>
                     <div class="col-lg-12">
                         <label for="image" class="form-label">Fotos do momento</label>
-                        <input type="file" (change)="fileChangeEvent($event)" class="form-control" id="image" name="image" formControlName="image" required>
+                        <input type="file" (change)="fileChangeEvent($event)" class="form-control" id="image" name="image" required>
                     </div>
                     <div class="col-lg-12 form-btn">
                         <input type="submit" class="btn btn-primary" value="{{ btnText }}" />

@@ -54,11 +54,12 @@ export class MomentFormComponent implements OnInit {
 
   fileChangeEvent(event: any){
 
-    alert("tem imagem");
+
 
     const file: File = event.target.files[0];
 
     this.momentForm.patchValue({ image: file });
+
 
   }
 
