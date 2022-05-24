@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<div class="mt-5 p-5" *ngIf="router.url =='/moments'">
+    <h1>tesadasdasdasdas</h1>
+
+    <div *ngFor="let moment of moments">
+        <h2>{{ moment.title }}</h2>
+    </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>
