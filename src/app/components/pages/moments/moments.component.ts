@@ -12,13 +12,14 @@ import { environment } from 'src/environments/environment';
 })
 export class MomentsComponent implements OnInit {
 
-  allMoments: Moment[] = []
-  moments: Moment[] = []
-  baseApiUrl = environment.baseApiUrl
+  allMoments: Moment[] = [];
+  moments: Moment[] = [];
+  baseApiUrl = environment.baseApiUrl;
 
   constructor(public router: Router, private momentService: MomentService) { }
 
   ngOnInit(): void {
+    /* o getMoments pega a função do moment.service, e manda um subscribe pra executar a função, e armazena os resultados em items */
     this.momentService.getMoments().subscribe((items) => {
       const data = items.data;
 

@@ -1,0 +1,59 @@
+div.wallpaper {
+    height: 650px;
+    background-image: url(/assets/img/wall.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: grayscale(45%);
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .content {
+            text-align: center;
+            color: white;
+            text-shadow: 3px 2px 3px black;
+        }
+    }
+}
+
+.content {
+    margin-top: 100px;
+    .moments {
+        padding: 30px;
+        img {
+            width: 400px;
+            height: auto;
+        }
+        .assin {
+            display: flex;
+            justify-content: space-between;
+        }
+        .title {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .info {
+            display: flex;
+            justify-content: space-between;
+            .comment {
+                font-size: 13px;
+            }
+            .details {
+                letter-spacing: 3px;
+                text-decoration: none;
+                a {
+                    text-decoration: none;
+                }
+            }
+            .details:hover {
+                animation: wobble;
+                /* referring directly to the animation's @keyframe declaration */
+                animation-duration: 1s;
+            }
+        }
+    }
+}

@@ -1,9 +1,38 @@
-<div class="mt-5 p-5" *ngIf="router.url =='/moments'">
-    <h1>tesadasdasdasdas</h1>
-
-    <div *ngFor="let moment of moments">
-        <h2>{{ moment.title }}</h2>
+<div *ngIf="router.url =='/moments'">
+    <div class="wallpaper">
+        <div class="container">
+            <div class="content">
+                <h1>Aproveite Cada momento</h1>
+                <h2>Faça deles, os seus melhores</h2>
+            </div>
+        </div>
     </div>
+
+    <div *ngIf="moments.length > 0; else noMoments">
+        <div class="container content">
+            <div class="row">
+                <div class="col-lg-4 moments" *ngFor="let moment of moments">
+                    <figure class="figure">
+                        <img src="{{ baseApiUrl}}uploads/{{moment.image}}" class="figure-img img-fluid rounded" alt="{{ moment.title }}">
+                        <div class="d-flex assin">
+                            <figcaption class="figure-caption">{{ moment.name }}</figcaption>
+                            <figcaption class="figure-caption text-end">{{ moment.created_at }}</figcaption>
+                        </div>
+                        <p class="title">{{ moment.title }}</p>
+                        <div class="info">
+                            <p class="comment">Comentarios: {{ moment.comments?.length }}</p>
+                            <p class="details"><a routerLink="{{ moment.id }}">Detalhes</a></p>
+                        </div>
+                        <hr>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ng-template represente o noMoments -->
+    <ng-template #noMoments>
+        <h1>Ainda não há momentos cadastrados</h1>
+    </ng-template>
 </div>
 <div>
     <router-outlet></router-outlet>
