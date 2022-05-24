@@ -8,15 +8,14 @@
         </div>
     </div>
 
-    <div *ngIf="moments.length > 0; else noMoments">
-        <div class="container content">
-            <div class="search-moments">
-                <h2>Bem vindo aos nossos momentos</h2>
-                <form class="bd-search position-relative">
-                    <input (input)="search($event)" type="search" class="form-control ds-input" id="search-input" placeholder="Busque um momento" autocomplete="off">
-                </form>
-            </div>
-
+    <div class="container content">
+        <div class="search-moments">
+            <h2>Bem vindo aos nossos momentos</h2>
+            <form class="bd-search position-relative">
+                <input (input)="search($event)" type="search" class="form-control ds-input" id="search-input" placeholder="Busque um momento" autocomplete="off">
+            </form>
+        </div>
+        <div *ngIf="moments.length > 0; else noMoments">
             <div class="row">
                 <div class="col-lg-4 moments" *ngFor="let moment of moments">
                     <figure class="figure">
@@ -38,7 +37,14 @@
     </div>
     <!-- ng-template represente o noMoments -->
     <ng-template #noMoments>
-        <h1>Ainda não há momentos cadastrados</h1>
+        <div class="no-moments">
+            <div class="title">
+                <h2>Nenhum momento encontrado</h2>
+            </div>
+            <div class="content">
+                <h3>Deseja cadastrar novos momentos ?</h3>
+            </div>
+        </div>
     </ng-template>
 </div>
 <div>

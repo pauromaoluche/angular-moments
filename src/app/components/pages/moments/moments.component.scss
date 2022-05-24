@@ -52,7 +52,7 @@ div.wallpaper {
         padding: 30px;
         img {
             width: 400px;
-            height: auto;
+            height: 200px;
         }
         .assin {
             display: flex;
@@ -81,6 +81,27 @@ div.wallpaper {
                 /* referring directly to the animation's @keyframe declaration */
                 animation-duration: 1s;
             }
+        }
+    }
+}
+
+.no-moments {
+    margin-top: 100px;
+    min-height: 350px;
+    text-align: center;
+    .title {
+        h2 {
+            animation: swing;
+            animation-duration: 1.5s;
+        }
+    }
+    .content {
+        margin-top: 70px;
+        h3 {
+            font-size: 20px;
+            animation: bounceInLeft;
+            animation-duration: 1.5s;
+            --animate-delay: 3s;
         }
     }
 }
