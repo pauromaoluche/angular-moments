@@ -1,0 +1,100 @@
+div.wallpaper {
+    height: 650px;
+    background-image: url(/assets/img/wall.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    filter: grayscale(45%);
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .content {
+            text-align: center;
+            color: white;
+            text-shadow: 3px 2px 3px black;
+        }
+    }
+}
+
+.about-moment {
+    margin-top: 100px;
+    display: flex;
+    .moment {
+        width: 100%;
+        .figure {
+            width: 530px;
+            #collapseTolls {
+                margin-top: 20px;
+                .card {
+                    flex-direction: unset;
+                    justify-content: space-between;
+                    a {
+                        width: 45%;
+                    }
+                }
+            }
+            img,
+            #collapseTolls {
+                width: 100%;
+            }
+            .info {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+    .description {
+        width: 100%;
+    }
+    .assin {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.comments-moment {
+    margin-top: 30px;
+    .comments {
+        margin-top: 50px;
+        ul {
+            list-style: none;
+            padding-left: 15px !important;
+            li {
+                .card {
+                    display: flex;
+                    border: 1px solid;
+                    padding: 15px;
+                    box-shadow: 5px 10px 10px;
+                    flex-direction: unset;
+                    .image {
+                        padding-right: 30px;
+                        img {
+                            box-shadow: -2px 3px;
+                        }
+                        .info {
+                            display: flex;
+                        }
+                    }
+                    .info {
+                        .name {
+                            font-size: 17px;
+                            box-sizing: border-box;
+                            font-weight: bold;
+                            text-transform: capitalize;
+                        }
+                        .text {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

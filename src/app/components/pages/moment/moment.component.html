@@ -1,1 +1,72 @@
-<p>moment works!</p>
+<div class="wallpaper">
+    <div class="container">
+        <div class="content">
+            <h1>Aproveite Cada momento</h1>
+            <h2>Faça deles, os seus melhores</h2>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="moment">
+    <div class="about-moment container">
+
+        <div class="moment">
+            <figure class="figure">
+                <img src="{{ baseApiUrl}}uploads/{{moment.image}}" class="figure-img img-fluid rounded img-thumbnail" alt="{{ moment.title }}">
+                <div class="d-flex assin">
+                    <figcaption class="figure-caption">{{ moment.name }}</figcaption>
+                    <figcaption class="figure-caption text-end">{{ moment.created_at }}</figcaption>
+                </div>
+                <div class="info">
+                    <p class="comment">Comentarios: {{ moment.comments?.length }}</p>
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseTolls" role="button" aria-expanded="false" aria-controls="collapseTolls">
+                        Opções
+                      </a>
+                </div>
+                <div class="collapse" id="collapseTolls">
+                    <div class="card card-body">
+                        <a class="btn btn-outline-primary" routerLink="edit/{{ moment.id }}">Editr</a>
+                        <a class="btn btn-outline-danger" (click)="removeHandle(moment.id)">Excluir</a>
+                    </div>
+                </div>
+                <hr>
+            </figure>
+        </div>
+        <div class="description">
+            <h2>{{ moment.title }}</h2>
+            <p>{{ moment.description }}</p>
+        </div>
+        <hr>
+    </div>
+    <div class="comments-moment container">
+        <div class="title">
+            <h2>Comentarios</h2>
+        </div>
+        <div class="comments">
+            <ul>
+                <li>
+                    <div class="comment">
+                        <div class="card">
+                            <div class="image">
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4" style="width: 50px;" alt="Avatar" />
+                            </div>
+                            <div class="info">
+                                <h3 class="name">Nome do usuario</h3>
+                                <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    asd
+                </li>
+                <li>
+                    asd
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
