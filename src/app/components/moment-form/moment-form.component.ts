@@ -9,7 +9,9 @@ import { Moment } from 'src/app/interfaces/Moments';
 })
 export class MomentFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Moment>();
-  @Input() btnText!: string
+   /* quando o dado chega de fora, o declaramos como input */
+   @Input() momentData: Moment | null = null;
+   @Input() btnText!: string;
 
   /* declarei o moment form, que foi passado como grupo la no html */
   /* a ! significa, que os valores ainda vão ser preenchidos */
@@ -21,12 +23,12 @@ export class MomentFormComponent implements OnInit {
     /* para fazer as validações do formulario, primeiro temos que inicializar ele */
     this.momentForm = new FormGroup({
       /* campos do formulario */
-      id: new FormControl(''),
-      name: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
-      data: new FormControl('', [Validators.required]),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      id: new FormControl(this.momentData ? this.momentData.id : ''),
+      name: new FormControl(this.momentData ? this.momentData.name : '', [Validators.required]),
+      email: new FormControl(this.momentData ? this.momentData.email : '', [Validators.required]),
+      data: new FormControl(this.momentData ? this.momentData.data : '', [Validators.required]),
+      title: new FormControl(this.momentData ? this.momentData.title : '', [Validators.required]),
+      description: new FormControl(this.momentData ? this.momentData.description : '', [Validators.required]),
       image: new FormControl('', [Validators.required]),
     })
   }
@@ -53,14 +55,8 @@ export class MomentFormComponent implements OnInit {
   }
 
   fileChangeEvent(event: any){
-
-
-
     const file: File = event.target.files[0];
-
     this.momentForm.patchValue({ image: file });
-
-
   }
 
   submit() {
@@ -69,8 +65,6 @@ export class MomentFormComponent implements OnInit {
     }
 
     console.log(this.momentForm.value);
-
     this.onSubmit.emit(this.momentForm.value);
   }
-
 }
