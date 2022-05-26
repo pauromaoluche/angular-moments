@@ -3,7 +3,7 @@
 <div class="moment-form">
     <div class="row">
         <div class="col-lg-7">
-            <h3>Compartilhe seu momento memoravel conosco</h3>
+            <h3>{{textMoment}}</h3>
             <form (ngSubmit)="submit()" [formGroup]="momentForm" #formDir="ngForm">
                 <input type="hidden" formControlName="id" />
                 <div class="row">
@@ -54,8 +54,8 @@
             </form>
         </div>
         <div class="col-lg-5">
-            <div class="image">
-                <img src="https://picsum.photos/550/500">
+            <div class="image" style="background: url({{urlImg}});">
+                <!-- <img src=""> -->
             </div>
         </div>
     </div>

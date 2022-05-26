@@ -12,6 +12,8 @@ export class MomentFormComponent implements OnInit {
    /* quando o dado chega de fora, o declaramos como input */
    @Input() momentData: Moment | null = null;
    @Input() btnText!: string;
+   @Input() textMoment!: string;
+   @Input() urlImg!: string;
 
   /* declarei o moment form, que foi passado como grupo la no html */
   /* a ! significa, que os valores ainda vão ser preenchidos */

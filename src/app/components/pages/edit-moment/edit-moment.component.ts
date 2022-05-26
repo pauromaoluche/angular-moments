@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Moment } from 'src/app/interfaces/Moments';
 import { MomentService } from 'src/app/services/moment.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-edit-moment',
   templateUrl: './edit-moment.component.html',
@@ -14,7 +15,9 @@ export class EditMomentComponent implements OnInit {
   moment!: Moment;
 
   btnText: string = 'Editar';
-
+  textMoment: string ='';
+  urlImg: string ='';
+  baseApiUrl = environment.baseApiUrl;
   constructor(
     private momentService: MomentService,
     private route: ActivatedRoute,
@@ -28,6 +31,8 @@ export class EditMomentComponent implements OnInit {
 
     this.momentService.getMoment(id).subscribe((item) => {
       this.moment = item.data;
+      this.urlImg = `${this.baseApiUrl}uploads/${this.moment.image}`
+      this.textMoment = `Editando o momento "${this.moment.title}"`;
     });
   }
   async editHandler(momentData: Moment) {

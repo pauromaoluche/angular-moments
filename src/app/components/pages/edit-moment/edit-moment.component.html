@@ -8,6 +8,5 @@
 </div>
 
 <div class="about-moment container" *ngIf="moment">
-    <h2>Editando o momento "{{ moment.title }}"</h2>
-    <app-moment-form (onSubmit)="editHandler($event)" [momentData]="moment" [btnText]="btnText"></app-moment-form>
+    <app-moment-form (onSubmit)="editHandler($event)" [momentData]="moment" [btnText]="btnText" [textMoment]="textMoment" [urlImg]="urlImg"></app-moment-form>
 </div>

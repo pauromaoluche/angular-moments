@@ -11,6 +11,8 @@ import { AlertService } from 'src/app/services/alert.service';
 })
 export class NewMomentComponent implements OnInit {
   btnText = "Salvar Momento";
+  textMoment = "Compartilhe seu momento memoravel conosco";
+  urlImg = "https://picsum.photos/550/500";
   constructor(
     private momentService: MomentService,
     private router: Router,
