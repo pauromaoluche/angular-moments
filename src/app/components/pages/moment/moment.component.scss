@@ -42,6 +42,7 @@ div.wallpaper {
                 width: 100%;
             }
             .info {
+                width: 100%;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -62,12 +63,44 @@ div.wallpaper {
 
 .comments-moment {
     margin-top: 30px;
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #collapseComment {
+        .form-group {
+            display: grid;
+            width: 100%;
+            input {
+                width: 50%;
+                padding: 5px 20px;
+                border-radius: 10px;
+                color: rgb(102, 102, 102);
+            }
+            textarea {
+                padding: 5px 20px;
+                border-radius: 10px;
+                color: rgb(102, 102, 102);
+                height: 170px;
+                resize: none;
+            }
+            input[type=submit] {
+                text-transform: uppercase;
+                border-radius: none;
+                color: white;
+                width: 200px;
+                margin-top: 10px;
+            }
+        }
+    }
     .comments {
         margin-top: 50px;
         ul {
             list-style: none;
-            padding-left: 15px !important;
+            padding-left: 10px !important;
             li {
+                margin-bottom: 35px;
                 .card {
                     display: flex;
                     border: 1px solid;
@@ -79,19 +112,22 @@ div.wallpaper {
                         img {
                             box-shadow: -2px 3px;
                         }
-                        .info {
-                            display: flex;
-                        }
                     }
                     .info {
+                        width: 100%;
                         .name {
                             font-size: 17px;
                             box-sizing: border-box;
                             font-weight: bold;
                             text-transform: capitalize;
                         }
-                        .text {
+                        p {
                             font-size: 14px;
+                            margin: 0;
+                        }
+                        .data {
+                            color: rgb(90, 90, 90);
+                            font-style: italic;
                         }
                     }
                 }

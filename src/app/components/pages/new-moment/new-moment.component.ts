@@ -38,6 +38,7 @@ export class NewMomentComponent implements OnInit {
     await this.momentService.createMoment(formData).subscribe(
       (data) =>{
         this.alertService.success('Sucesso', 'Momento cadastrado com sucesso!');
+        this.router.navigate(['moments'])
       },
       (error) =>{
         this.alertService.error('Erro', 'Ouve um erro ao cadastrar o momento!');

@@ -14,8 +14,13 @@
             <figure class="figure">
                 <img src="{{ baseApiUrl}}uploads/{{moment.image}}" class="figure-img img-fluid rounded img-thumbnail" alt="{{ moment.title }}">
                 <div class="d-flex assin">
-                    <figcaption class="figure-caption">{{ moment.name }}</figcaption>
-                    <figcaption class="figure-caption text-end">{{ moment.created_at }}</figcaption>
+                    <figcaption class="figure-caption">Nome: {{ moment.name }}</figcaption>
+                    <figcaption class="figure-caption text-end">Postado: {{ moment.created_at | date : 'dd/MM/yyyy' }}</figcaption>
+                </div>
+                <div class="d-flex assin">
+                    <figcaption class="figure-caption">E-mail: {{ moment.email }}</figcaption>
+                    <figcaption class="figure-caption text-end">Data momento: {{ moment.data | date : 'dd/MM/yyyy' }}</figcaption>
+
                 </div>
                 <div class="info">
                     <p class="comment">Comentarios: {{ moment.comments?.length }}</p>
@@ -40,32 +45,54 @@
     </div>
     <div class="comments-moment container">
         <div class="title">
-            <h2>Comentarios</h2>
+            <h2>Comentarios ({{ moment.comments!.length > 0 ? moment.comments!.length: 0 }})</h2>
+            <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseComment" role="button" aria-expanded="false" aria-controls="collapseTolls">
+                Fazer um comentario
+              </a>
         </div>
-        <div class="comments">
-            <ul>
-                <li>
+
+        <div class="collapse" id="collapseComment">
+            <form [formGroup]="commentForm" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
+                <div class="form-group">
+                    <label for="username">Nome: </label>
+                    <input formControlName="username" type="text" placeholder="Digite seu nome" maxlength="50" required />
+                    <div *ngIf="username.invalid && formDir.submitted" class="alert alert-danger" role="alert">
+                        <p *ngIf="username.errors?.['required']">O nome é obrigatorio</p>
+                    </div>
+                </div>
+                <div class=" form-group ">
+                    <label for="text">Comentario: </label>
+                    <textarea formControlName="text" type="text " placeholder="Digite seu nome " maxlength="750 " required></textarea>
+                    <div *ngIf="text.invalid && formDir.submitted" class="alert alert-danger" role="alert">
+                        <p *ngIf="text.errors?.['required']">O comentario é obrigatorio</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="Comentar" />
+                </div>
+            </form>
+        </div>
+        <div class="comments ">
+            <ul *ngIf="moment.comments!.length> 0; else noComments">
+                <li *ngFor="let comment of moment.comments">
                     <div class="comment">
                         <div class="card">
                             <div class="image">
-                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4" style="width: 50px;" alt="Avatar" />
+                                <img src="https://avatars.dicebear.com/api/croodles/:{{ comment.username }}.svg?background=%23d3d3d3" class="rounded-circle shadow-4" style="width: 50px;" alt="Avatar" />
                             </div>
                             <div class="info">
-                                <h3 class="name">Nome do usuario</h3>
-                                <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                    make a type specimen book</p>
+                                <h3 class="name">{{ comment.username }}</h3>
+                                <p class="text">{{ comment.text }}</p>
+                                <p class="text-end data">{{ comment.created_at | date : 'dd/MM/yyyy'}}</p>
                             </div>
                         </div>
 
                     </div>
                 </li>
-                <li>
-                    asd
-                </li>
-                <li>
-                    asd
-                </li>
             </ul>
+            <ng-template #noComments>
+                <h2 class="text-center pt-3 pb-5 mb-5">Sem comentarios</h2>
+            </ng-template>
         </div>
     </div>
 
